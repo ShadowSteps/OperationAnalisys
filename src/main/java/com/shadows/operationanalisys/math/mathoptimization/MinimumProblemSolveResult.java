@@ -23,14 +23,15 @@ public class MinimumProblemSolveResult {
         this.Minimun = Function.Result(Point);
     }
     public void DisplayToConsole(){
+        System.out.println("Result of algoritm...");
         System.out.println("Number of iterations: "+this.Iterations);
         String PointStr = "";
         String GradFuncStr = "Grad(";
         String GradResultStr = "";
         for (int i=0;i<Point.length;i++){
-            PointStr+= "x"+i+" = "+Point[i]+"; ";
+            PointStr+= "x"+i+" = "+String.format("%.12f",Point[i])+"; ";
             GradFuncStr+="x"+i+",";
-            GradResultStr+=" "+Gradient[i]+" ,";
+            GradResultStr+=" "+String.format("%.12f",Gradient[i])+" ,";
         }
         int Length = GradFuncStr.length();
         GradFuncStr = GradFuncStr.substring(0,Length-1);
@@ -40,6 +41,7 @@ public class MinimumProblemSolveResult {
         String GradStr = GradFuncStr+" = "+GradResultStr;
         System.out.println(PointStr);
         System.out.println(GradStr);
-        System.out.println("F minimum = "+Minimun);
+        System.out.println("F minimum = "+String.format("%.12f",Minimun));
+        System.out.println("End of result...");
     }
 }

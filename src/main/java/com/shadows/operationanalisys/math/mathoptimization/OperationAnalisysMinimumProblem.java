@@ -5,6 +5,7 @@
  */
 package com.shadows.operationanalisys.math.mathoptimization;
 
+import com.shadows.operationanalisys.math.function.FunctionParameterBoundarys;
 import com.shadows.operationanalisys.math.function.MathFunction;
 
 /**
@@ -13,8 +14,8 @@ import com.shadows.operationanalisys.math.function.MathFunction;
  */
 public abstract class OperationAnalisysMinimumProblem {
     protected MathFunction Function;
-    protected int MaxIterations = 20000;
-    protected int c = 10;
+    protected int MaxIterations = 100000;
+    protected double Step = 10;
     protected double espG = 0.001;
     protected double espj = 0.001;    
     public void SolveAndDisplayToConsole(){

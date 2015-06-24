@@ -5,21 +5,23 @@
  */
 package com.shadows.operationanalisys.math.mathoptimization;
 
+import com.shadows.operationanalisys.math.function.FunctionParameterBoundarys;
 import com.shadows.operationanalisys.math.function.MathFunction;
 
 /**
  *
  * @author John
  */
-public class MiniminizationProblem extends OperationAnalisysMinimumProblem{
+public class ProjectionProblem extends OperationAnalisysMinimumProblem{
 
-    public MiniminizationProblem(MathFunction ProblemFunction) {
+    public ProjectionProblem(MathFunction ProblemFunction) {
         super(ProblemFunction);
     }
 
     @Override
-    protected MinimumProblemSolveResult Solve() {
-        double[] point = Function.GetStartArguments();
+    protected MinimumProblemSolveResult Solve() {        
+        double[] point = Function.GetStartArguments();       
+        point = Function.PointInFunctionOrBoundary(point);
         for (int i = 0;i<this.MaxIterations;i++){
             double Rho = this.Step / (i+1);    
             double[] Grad = Function.Gradient(point);
@@ -29,8 +31,9 @@ public class MiniminizationProblem extends OperationAnalisysMinimumProblem{
             }
             double Gama = 1/Norm;
             for (int j=0;j<point.length;j++){
-                point[j] -= Rho*Grad[j]*Gama;
-            }
+                point[j] -= Rho*Grad[j]*Gama;  
+                point[j] = Function.ParameterInFunctionOrBoundary(j, point[j]);
+            }            
         }
         return new MinimumProblemSolveResult(point, MaxIterations, Function);
     }
