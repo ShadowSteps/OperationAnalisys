@@ -13,26 +13,19 @@ import com.shadows.operationanalisys.math.function.MathFunction;
  */
 public class MiniminizationProblem extends OperationAnalisysMinimumProblem{
 
-    public MiniminizationProblem(MathFunction ProblemFunction) {
-        super(ProblemFunction);
+    public MiniminizationProblem(MathFunction ProblemFunction,double Step) {
+        super(ProblemFunction,Step);
     }
 
     @Override
-    protected MinimumProblemSolveResult Solve() {
-        double[] point = Function.GetStartArguments();
-        for (int i = 0;i<this.MaxIterations;i++){
-            double Rho = this.Step / (i+1);    
-            double[] Grad = Function.Gradient(point);
-            double Norm = Function.GadientNorm(point);
-            if (Norm < espG){
-                break;
-            }
-            double Gama = 1/Norm;
-            for (int j=0;j<point.length;j++){
-                point[j] -= Rho*Grad[j]*Gama;
-            }
-        }
-        return new MinimumProblemSolveResult(point, MaxIterations, Function);
+    protected Object AfterAlgorithFinish(double[] PastPoint, double[] Point) {
+       return null;
     }
+
+    @Override
+    protected Object BeforeAlgorithPreparation(double[] Point) {
+        return null;
+    }
+
     
 }

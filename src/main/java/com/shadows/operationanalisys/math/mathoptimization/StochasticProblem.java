@@ -5,19 +5,20 @@
  */
 package com.shadows.operationanalisys.math.mathoptimization;
 
-import com.shadows.operationanalisys.math.function.MathFunction;
+import com.shadows.operationanalisys.math.function.MathFunctionWithRandomValues;
+import com.shadows.operationanalisys.math.statistics.StatisticsDistribution;
 
 /**
  *
  * @author John
  */
-public class MinMaxProblem extends OperationAnalisysMinimumProblem{
-    protected MathFunction SecondFunction;
-    public MinMaxProblem(MathFunction ProblemFunction,MathFunction SecondProblemFunction,double Step) {
+public class StochasticProblem  extends OperationAnalisysMinimumProblem{
+    public StochasticProblem(MathFunctionWithRandomValues ProblemFunction,double Step) {
         super(ProblemFunction,Step);
-        this.SecondFunction = SecondProblemFunction;
     }
+
    
+
     @Override
     protected Object AfterAlgorithFinish(double[] PastPoint, double[] Point) {
         return null;
@@ -25,11 +26,7 @@ public class MinMaxProblem extends OperationAnalisysMinimumProblem{
 
     @Override
     protected Object BeforeAlgorithPreparation(double[] Point) {
-        if (Function.Result(Point) < SecondFunction.Result(Point)){
-            MathFunction Func = Function;
-            Function = SecondFunction;
-            SecondFunction = Func;
-        }
+        ((MathFunctionWithRandomValues)Function).GenRandomValues();
         return null;
     }
     
