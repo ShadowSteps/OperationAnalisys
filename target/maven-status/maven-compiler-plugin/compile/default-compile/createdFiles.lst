@@ -1,0 +1,8 @@
+com\shadows\operationanalisys\math\mathoptimization\MinimumProblemSolveResult.class
+com\shadows\operationanalisys\math\mathoptimization\MiniminizationProblem.class
+com\shadows\operationanalisys\math\mathoptimization\MinMaxProblem.class
+com\shadows\operationanalisys\main\ConsoleClient.class
+com\shadows\operationanalisys\math\function\FunctionParameterBoundarys.class
+com\shadows\operationanalisys\math\mathoptimization\ProjectionProblem.class
+com\shadows\operationanalisys\math\mathoptimization\OperationAnalisysMinimumProblem.class
+com\shadows\operationanalisys\math\function\MathFunction.class
